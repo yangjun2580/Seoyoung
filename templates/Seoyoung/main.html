@@ -1,0 +1,879 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+               <link
+            href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+            rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <!--        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+    <!--              integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <!--        부트스트랩 지워야함 동그라미 padding 2rem; 없앨려면-->
+
+    <!--JQuery-->
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+
+    <title>Instagram</title>
+</head>
+<body>
+<!--네비게이션 오른쪽 집,종이비행기,나침반 부분-->
+<nav id="topcontainer" class="flex">
+    <div id="navContainer" class="flex">
+        <div class="logoContainer">
+            <a href>
+                <img alt="Instagram" id="logo"
+                     src="http://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png"
+                     srcset="http://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x">
+            </a>
+        </div>
+        <div class="totalinputContainer">
+            <div class="inputContainer">
+                <div id="inputImg">
+                    <svg aria-label="검색" class="_8-yf5 " color="#8e8e8e" fill="#8e8e8e" height="16" role="img"
+                         viewBox="0 0 24 24" width="16">
+                        <path d="M19 10.5A8.5 8.5 0 1110.5 2a8.5 8.5 0 018.5 8.5z" fill="none" stroke="currentColor"
+                              stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2" x1="16.511" x2="22" y1="16.511" y2="22"></line>
+                    </svg>
+                </div>
+                <input class="maininputContainer" aria-label="입력 검색" placeholder="검색" type="text">
+            </div>
+        </div>
+        <div id="iconContainer" class="flex">
+            <div class="navIcon">
+                <a href>
+                    <svg aria-label="홈" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img"
+                         viewBox="0 0 24 24" width="24">
+                        <path d="M22 23h-6.001a1 1 0 01-1-1v-5.455a2.997 2.997 0 10-5.993 0V22a1 1 0 01-1 1H2a1 1 0 01-1-1V11.543a1.002 1.002 0 01.31-.724l10-9.543a1.001 1.001 0 011.38 0l10 9.543a1.002 1.002 0 01.31.724V22a1 1 0 01-1 1z"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="navIcon">
+                <a href>
+                    <svg aria-label="Direct" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img"
+                         viewBox="0 0 24 24" width="24">
+                        <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                              x2="9.218" y1="3" y2="10.083"></line>
+                        <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                                 stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                    </svg>
+                </a>
+            </div>
+            <button class="navIcon" id="nav_bar_add_box">
+                <a>
+                    <svg aria-label="새로운 게시물" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img"
+                         viewBox="0 0 24 24" width="24">
+                        <path d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552z"
+                              fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2"></path>
+                        <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2" x1="6.545" x2="17.455" y1="12.001" y2="12.001"></line>
+                        <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2" x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line>
+                    </svg>
+                </a>
+            </button>
+
+            <div class="navIcon">
+                <a href>
+                    <svg aria-label="사람 찾기" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img"
+                         viewBox="0 0 24 24" width="24">
+                        <polygon fill="none" points="13.941 13.953 7.581 16.424 10.06 10.056 16.42 7.585 13.941 13.953"
+                                 stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                 stroke-width="2"></polygon>
+                        <polygon fill-rule="evenodd"
+                                 points="10.06 10.056 13.949 13.945 7.581 16.424 10.06 10.056"></polygon>
+                        <circle cx="12.001" cy="12.005" fill="none" r="10.5" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="navIcon">
+                <a href>
+                    <svg aria-label="활동 피드" class="_8-yf5 " color="#262626" fill="#262626" height="24" role="img"
+                         viewBox="0 0 24 24" width="24">
+                        <path d="M16.792 3.904A4.989 4.989 0 0121.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 014.708-5.218 4.21 4.21 0 013.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 013.679-1.938m0-2a6.04 6.04 0 00-4.797 2.127 6.052 6.052 0 00-4.787-2.127A6.985 6.985 0 00.5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 003.518 3.018 2 2 0 002.174 0 45.263 45.263 0 003.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 00-6.708-7.218z"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="navIcon">
+                <ul class="dropdown">
+                    <li class="menu">
+                        <button onclick="myFunction()" class="dropbtn">
+                            <img class="click" alt="junhyeok님의 프로필사진" id="userImg" draggable="false"
+                                 src="{% get_media_prefix %}{{ user.profile_image }}">
+                        </button>
+
+                        <div id="myDropdown" class="dropdown-content">
+                            <!--프로필-->
+                            <a id="profile" href="/content/profile">
+                                <div>
+                                    <div class="profile_img">
+                                        <svg aria-label="프로필" color="#262626" fill="#262626" height="16" role="img"
+                                             viewBox="0 0 24 24" width="16">
+                                            <circle cx="12.004" cy="12.004" fill="none" r="10.5" stroke="currentColor"
+                                                    stroke-linecap="round" stroke-miterlimit="10"
+                                                    stroke-width="2"></circle>
+                                            <path d="M18.793 20.014a6.08 6.08 0 00-1.778-2.447 3.991 3.991 0 00-2.386-.791H9.38a3.994 3.994 0 00-2.386.791 6.09 6.09 0 00-1.779 2.447"
+                                                  fill="none" stroke="currentColor" stroke-linecap="round"
+                                                  stroke-miterlimit="10" stroke-width="2"></path>
+                                            <circle cx="12.006" cy="9.718" fill="none" r="4.109" stroke="currentColor"
+                                                    stroke-linecap="round" stroke-miterlimit="10"
+                                                    stroke-width="2"></circle>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        프로필
+                                    </div>
+                                </div>
+                            </a>
+<!--                            저장됨-->
+                            <a>
+                                <div>
+                                    <div class="profile_img">
+                                        <svg aria-label="저장됨" class="_ab6-" color="#262626" fill="#262626" height="16"
+                                             role="img" viewBox="0 0 24 24" width="16">
+                                            <polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21"
+                                                     stroke="currentColor" stroke-linecap="round"
+                                                     stroke-linejoin="round" stroke-width="2"></polygon>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        저장됨
+                                    </div>
+                                </div>
+                            </a>
+<!--                            설정-->
+                            <a>
+                                <div>
+                                    <div class="profile_img">
+                                        <svg aria-label="설정" class="_ab6-" color="#262626" fill="#262626" height="16"
+                                             role="img" viewBox="0 0 24 24" width="16">
+                                            <circle cx="12" cy="12" fill="none" r="8.635" stroke="currentColor"
+                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2"></circle>
+                                            <path d="M14.232 3.656a1.269 1.269 0 01-.796-.66L12.93 2h-1.86l-.505.996a1.269 1.269 0 01-.796.66m-.001 16.688a1.269 1.269 0 01.796.66l.505.996h1.862l.505-.996a1.269 1.269 0 01.796-.66M3.656 9.768a1.269 1.269 0 01-.66.796L2 11.07v1.862l.996.505a1.269 1.269 0 01.66.796m16.688-.001a1.269 1.269 0 01.66-.796L22 12.93v-1.86l-.996-.505a1.269 1.269 0 01-.66-.796M7.678 4.522a1.269 1.269 0 01-1.03.096l-1.06-.348L4.27 5.587l.348 1.062a1.269 1.269 0 01-.096 1.03m11.8 11.799a1.269 1.269 0 011.03-.096l1.06.348 1.318-1.317-.348-1.062a1.269 1.269 0 01.096-1.03m-14.956.001a1.269 1.269 0 01.096 1.03l-.348 1.06 1.317 1.318 1.062-.348a1.269 1.269 0 011.03.096m11.799-11.8a1.269 1.269 0 01-.096-1.03l.348-1.06-1.317-1.318-1.062.348a1.269 1.269 0 01-1.03-.096"
+                                                  fill="none" stroke="currentColor" stroke-linejoin="round"
+                                                  stroke-width="2"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        설정
+                                    </div>
+                                </div>
+                            </a>
+<!--                            로그아웃-->
+                            <hr color="#d9d9d9" size="1" noshade>
+                            <a href="/user/logout">
+                                <div>
+                                    <div class="profile_img">
+
+                                    </div>
+                                    <div>
+                                        로그아웃
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--바디 메인 컨테이너-->
+<main class="mainContainer">
+    <div class="mainLeftSection">
+        <div class="friendList">
+            <ul class="friendListContainer">
+                <li style="transform: translateX(0px); width: 10px;"></li>
+                <li class="firendLiContainer">
+                    <button class="friendBtn">
+                        <div class="friendContainer">
+                            <img class="frienduserImg" src="{%static 'img/_mongvely__.jpg' %}">
+                            </img>
+                            <div class="friendName">_mongvely__</div>
+                        </div>
+                    </button>
+                </li>
+                <li class="firendLiContainer">
+                    <button class="friendBtn">
+                        <div class="friendContainer">
+                            <img class="frienduserImg" src="{%static 'img/gamjanoma.jpg' %}">
+                            </img>
+                            <div class="friendName">gamjanoma</div>
+                        </div>
+                    </button>
+                </li>
+                <li class="firendLiContainer">
+                    <button class="friendBtn">
+                        <div class="friendContainer">
+                            <img class="frienduserImg" src="{%static 'img/producerul.jpg' %}">
+                            </img>
+                            <div class="friendName">producerul</div>
+                        </div>
+                    </button>
+                </li>
+                <li class="firendLiContainer">
+                    <button class="friendBtn">
+                        <div class="friendContainer">
+                            <img class="frienduserImg" src="{%static 'img/junhy__k_.jpg' %}">
+                            </img>
+                            <div class="friendName">junhy__k_</div>
+                        </div>
+                    </button>
+                </li>
+                <li class="firendLiContainer">
+                    <button class="friendBtn">
+                        <div class="friendContainer">
+                            <img class="frienduserImg" src="{%static 'img/hoochucho.jpg' %}">
+                            </img>
+                            <div class="friendName">hoo_chu_c..</div>
+                        </div>
+                    </button>
+                </li>
+                <li class="firendLiContainer">
+                    <button class="friendBtn">
+                        <div class="friendContainer">
+                            <img class="frienduserImg" src="{%static 'img/oengjinsam.jpg' %}">
+                            </img>
+                            <div class="friendName">oengjinsam</div>
+                        </div>
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        {% for feed in feeds %}
+        <div class="articleList">
+            <article class="arcitle">
+                <div class="articleUserConatiner">
+                    <div class="flex">
+                        <img src="{% get_media_prefix %}{{ feed.profile_image }}" class="articleUserImg">
+                    </div>
+                    <div class="articleUserName">
+                        {{ feed.nickname }}
+                    </div>
+                    <div class="pad">
+                        <svg aria-label="옵션 더 보기" class="_ab6-" color="#262626" fill="#262626" height="24"
+                             role="img" viewBox="0 0 24 24" width="24">
+                            <circle cx="12" cy="12" r="1.5"></circle>
+                            <circle cx="6" cy="12" r="1.5"></circle>
+                            <circle cx="18" cy="12" r="1.5"></circle>
+                        </svg>
+                    </div>
+                </div>
+                <div class="articleImgContainer">
+                    <img src="{% get_media_prefix %}{{ feed.image }}" class="articleImg">
+                </div>
+
+
+                <div class="useremoteContainer">
+                        <span style="margin-left: 5px;width: 30px; height: 22px; color: red; cursor: pointer;" id="favorite_{{ feed.id }}" feed_id="{{ feed.id }}" class="favorite material-icons-outlined">{% if feed.is_liked %}
+                             favorite{% else %}favorite_border{% endif %}</span>
+
+                    <button class="articleemoteBtn">
+                        <svg aria-label="댓글 달기" class="_8-yf5 " color="#262626" fill="#262626" height="24"
+                             role="img" viewBox="0 0 24 24" width="24">
+                            <path d="M20.656 17.008a9.993 9.993 0 10-3.59 3.615L22 22z" fill="none"
+                                  stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg>
+                    </button>
+                    <button class="articleemoteBtn">
+                        <svg aria-label="게시물 공유" class="_8-yf5 " color="#262626" fill="#262626" height="24"
+                             role="img" viewBox="0 0 24 24" width="24">
+                            <line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22"
+                                  x2="9.218" y1="3" y2="10.083"></line>
+                            <polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+                                     stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon>
+                        </svg>
+                    </button>
+                    <span class="emoteSpan">
+                            <button style="cursor: pointer;" id="bookmark_{{ feed.id}}" feed_id="{{ feed.id }}" class="bookmark articleemoteBtn material-icons-outlined">
+                                {% if feed.is_marked %}
+                                bookmark
+                                {% else %}
+                                bookmark_border
+                                {% endif %}
+                            </button>
+                        </span>
+                </div>
+                <div class="userLogConatainer">
+                    <div class="userLikeContainer">
+                        <div class="flex">
+                            <img src="{%static 'img/wow.jpg' %}" class="likeUserImg">
+                        </div>
+                        <span class="likeUserText"> <span class="articleMainUser">
+                                <a href>junhy__k_</a>
+                            </span>
+                                님
+                                <span class="articleMainUser">
+                                    <a href>외 {{ feed.like_count}}명</a>
+                                    </span>이 좋아합니다.
+                                </span>
+                    </div>
+                    <div class="articleContentContainer">
+                            <span class="articleMainUser">
+                                <a href>{{ feed.nickname }}</a>
+                            </span>
+                        {{ feed.content }}
+                        <br>
+                        <br>
+
+                        <div id="reply_list_{{ feed.id }}">
+                        {% for reply in feed.reply_list %}
+                        <div class="comment">
+                        <span class="articleMainUser">
+                                <a>{{ reply.nickname }}</a>
+                            </span>
+                            {{ reply.reply_content }}
+                            <br>
+                        </div>
+                        {% endfor %}
+
+
+                        </div>
+
+                    </div>
+                    <div class="articleDateContainer">
+                        <a>
+                            <div class="articleDate">
+                                2일 전
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class=" articleCommentContainer">
+                        <form class="articleCommentForm">
+                            <div clas="articleEmotion">
+                                <button>
+                                    <svg aria-label="이모티콘" class="_8-yf5 " color="#262626" fill="#262626"
+                                         height="24" role="img" viewBox="0 0 24 24" width="24">
+                                        <path d="M15.83 10.997a1.167 1.167 0 101.167 1.167 1.167 1.167 0 00-1.167-1.167zm-6.5 1.167a1.167 1.167 0 10-1.166 1.167 1.167 1.167 0 001.166-1.167zm5.163 3.24a3.406 3.406 0 01-4.982.007 1 1 0 10-1.557 1.256 5.397 5.397 0 008.09 0 1 1 0 00-1.55-1.263zM12 .503a11.5 11.5 0 1011.5 11.5A11.513 11.513 0 0012 .503zm0 21a9.5 9.5 0 119.5-9.5 9.51 9.51 0 01-9.5 9.5z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <input id="reply_{{ feed.id }}" type="text" class="articleCommentArea" aria-label="댓글 달기"
+                                      placeholder="댓글 달기...">
+                            <div style=" cursor: pointer;" feed_id="{{ feed.id }}" id="articleCommentSubmit" class="upload_reply" >
+                                게시
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+    <div class="Xmss_"></div>
+    <div>
+        <div class="mainRightSection" style="left:740px;">
+            <div class="userInfoRight">
+                <div>
+                    <img src="{% get_media_prefix %}{{ user.profile_image }}" class="userInfoImg">
+                </div>
+                <div class="userInfonameContainer">
+                    <div class="username">
+                        {{ user.nickname }}
+                    </div>
+                    <div class="userRealname">
+                        {{ user.name }}
+                    </div>
+                </div>
+                <div class="chnageUser">
+                    <button class="changeUserBtn"> 전환</button>
+                </div>
+            </div>
+            <div class="recommandUserContainer">
+                <span class="recommandUserTv"> 회원님을 위한 추천</span>
+                <span>
+                    <a class="recommandViewAll"> 모두 보기 </a>
+                </span>
+            </div>
+            <div>
+                <ul class="recommanUserListContainer">
+                    <li class="recommanUserList">
+                        <img src="{%static 'img/dodth_.jpg' %}" class="articleUserImg">
+                        <div class="userrecommandNameContainer">
+                            <div class="userrecommandName">
+                                <div class="recommandusername">
+                                    <a href>dodth_</a>
+                                </div>
+                                <div class="recommandReason">
+                                    회원님을 위한 추천
+                                </div>
+                            </div>
+                        </div>
+                        <div class="follwUser">
+                            <button class="followuserBtn">
+                                팔로우
+                            </button>
+                        </div>
+                    </li>
+                    <li class="recommanUserList">
+                        <img src="{%static 'img/hoochucho.jpg' %}" class="articleUserImg">
+                        <div class="userrecommandNameContainer">
+                            <div class="userrecommandName">
+                                <div class="recommandusername">
+                                    <a href>hoo_chu_choi</a>
+                                </div>
+                                <div class="recommandReason">
+                                    회원님을 위한 추천
+                                </div>
+                            </div>
+                        </div>
+                        <div class="follwUser">
+                            <button class="followuserBtn">
+                                팔로우
+                            </button>
+                        </div>
+                    </li>
+                    <li class="recommanUserList">
+                        <img src="{%static 'img/42psy42.jpg' %}" class="articleUserImg">
+                        <div class="userrecommandNameContainer">
+                            <div class="userrecommandName">
+                                <div class="recommandusername">
+                                    <a href>42psy42</a>
+                                </div>
+                                <div class="recommandReason">
+                                    회원님을 위한 추천
+                                </div>
+                            </div>
+                        </div>
+                        <div class="follwUser">
+                            <button class="followuserBtn">
+                                팔로우
+                            </button>
+                        </div>
+                    </li>
+                    <li class="recommanUserList">
+                        <img src="{%static 'img/kwakjineon.jpg' %}" class="articleUserImg">
+                        <div class="userrecommandNameContainer">
+                            <div class="userrecommandName">
+                                <div class="recommandusername">
+                                    <a href>kwakjineon</a>
+                                </div>
+                                <div class="recommandReason">
+                                    회원님을 위한 추천
+                                </div>
+                            </div>
+                        </div>
+                        <div class="follwUser">
+                            <button class="followuserBtn">
+                                팔로우
+                            </button>
+                        </div>
+                    </li>
+                    <li class="recommanUserList">
+                        <img src="{%static 'img/user1.jpg' %}" class="articleUserImg">
+                        <div class="userrecommandNameContainer">
+                            <div class="userrecommandName">
+                                <div class="recommandusername">
+                                    <a href>ungddoung</a>
+                                </div>
+                                <div class="recommandReason">
+                                    회원님을 위한 추천
+                                </div>
+                            </div>
+                        </div>
+                        <div class="follwUser">
+                            <button class="followuserBtn">
+                                팔로우
+                            </button>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="introContainer">
+                <div class="introcontent">
+                    소개ㆍ도움ㆍ홍보 센터ㆍAPIㆍ채용 정보ㆍ<br>
+                    개인정보처리방침ㆍ약관ㆍ위치ㆍ언어
+                </div>
+                <div class="companyname">
+                    @ 2022 INSTAGRAM FROM META
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!--새 게시물 업로드 모달창-->
+<div id="first_modal" class="modal_overlay">
+    <div class="modal_window">
+        <div class="modalContainer" style="display: flex; flex-direction: row; justify-content: space-between">
+            <div style="width: 40px; background: white ">
+            </div>
+            <div>
+                <b>새 게시물 만들기</b>
+            </div>
+            <div style="width: 40px; background: white;">
+
+            </div>
+        </div>
+
+        <!--        게시물 올리는 모달에 인스타처럼 아이콘이랑 코멘트를 넣어줌 @@@할수있으면 하기-->
+        <div id="upload" class="img_upload_space;">
+        </div>
+    </div>
+</div>
+
+<!--두번째 모달임-->
+<div id="second_modal" class="modal_overlay">
+    <div class="modal_window">
+        <div class="modalContainer" style="display: flex; flex-direction: row; justify-content: space-between">
+            <div style="width: 40px; background: white ">
+            </div>
+            <div>
+                <b>새 게시물 만들기</b>
+            </div>
+            <div style="width: 40px; background: white ">
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: row;">
+            <div class="img_upload_space" style="width: 500px; height: 555px;border-radius:10px; ">
+
+            </div>
+            <div class="modalContainer">
+                <div>
+                    <div>
+                    <img src="{% get_media_prefix %}{{ user.profile_image }}" id="feedImg">
+                    <div id="feednickname">
+                        {{ user.nickname }}
+                    </div>
+                </div>
+
+
+                <div class="textContainer">
+                    <textarea id="input_feed_content" class="textbox" aria-label="문구 입력..." placeholder="문구 입력..."
+                              autocomplete="off" ;
+                              autocorrect="off"
+                              style="font-size: 15px; height: 235px; width: 297px; background: transparent; padding-top: 23px;"></textarea>
+                </div>
+                <button id="feed_create_button" type="button" class="share_button" style="width: 100">
+                    공유하기
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--게시물 업로드 모달, 댓글 입력하는 펑션.-->
+<script>
+
+    $(".upload_reply").click(function (event){
+        let feed_id = event.target.attributes.getNamedItem('feed_id').value;
+        let reply_id = 'reply_' + feed_id
+        let reply_content = $('#'+reply_id).val()
+
+        if(reply_content.length <= 0){
+        alert("왕쓰 댓글을 입력해 ");
+            return 0;
+        }
+        $.ajax({
+            url: "/content/reply",
+            data: {
+                feed_id : feed_id,
+                reply_content : reply_content
+            },
+            method: "POST",
+            success: function (data) {
+                console.log("성공");
+                $("#reply_list_"+feed_id).append("<div class='comment'><a>{{ user.nickname }}</a> "+ reply_content +"</div>")
+<!--                location.replace('/main');-->
+
+            },
+            error: function (request, status, error) {
+                console.log("에러");
+            },
+            complete: function () {
+                console.log("완료");
+                $('#'+reply_id).val('');
+            }
+        });
+    });
+
+    $('#nav_bar_add_box').click(function (){
+        $('#first_modal').css({
+            display : 'flex'
+          });
+
+          $(document.body).css({
+            overflow : 'hidden'
+          });
+       });
+
+
+</script>
+
+
+<!--이미지 업로드-->
+<script>
+
+    let files;
+
+    $('#upload')
+  .on("dragover", dragOver)
+  .on("dragleave", dragOver)
+  .on("drop", uploadFiles);
+
+function dragOver(e){
+  e.stopPropagation();
+  e.preventDefault();
+  if (e.type == "dragover") {
+        $(e.target).css({
+            "background-color": "gray",
+            "outline-offset": "-20px"
+        });
+    } else {
+        $(e.target).css({
+            "background-color": "white",
+            "outline-offset": "-10px"
+        });
+    }
+}
+
+function uploadFiles(e){
+  e.stopPropagation();
+  e.preventDefault();
+
+    e.dataTransfer = e.originalEvent.dataTransfer; //2
+    files = e.target.files || e.dataTransfer.files;
+    console.log("뭔가 파일을 올렸네?" + files[0].name);
+    if (files.length > 1) {
+        alert('하나만 올려라.');
+        return;
+    }
+         if (files[0].type.match(/image.*/)) {
+
+            $('#first_modal').css({
+            display : 'none'
+          });
+            $('#second_modal').css({
+            display : 'flex'
+          });
+
+    $('.img_upload_space').css({
+        "background-image": "url(" + window.URL.createObjectURL(files[0]) + ")",
+        "outline": "none",
+        "background-size": "100% 100%",
+        "background-repeat": "no-repeat",
+        "background-position": "center"
+    });
+}else{
+  alert('이미지가 아닙니다.');
+  return;
+}
+
+}
+   $('#feed_create_button').click(function(){
+
+        let file = files[0];
+        let image = files[0].name;
+        let content = $('#input_feed_content').val();
+
+        let fd = new FormData();
+
+        fd.append('file', file);
+        fd.append('image', image);
+        fd.append('content', content);
+
+
+        $.ajax({
+            url: "/content/upload",
+            data: fd,
+            method: "POST",
+            processData: false,
+            contentType: false,
+            success: function (data){
+                console.log("성공");
+            },
+            error: function (request, status, error){
+                console.log("에러");
+            },
+            complete: function (){
+                console.log("완료");
+                location.replace("/main");
+            }
+        });
+    });
+</script>
+
+
+<!--모달창 부모클래스(modal_overlay)가 아닌 다른 곳을 누르면 모달창 숨김-->
+<script>
+ $(document).mouseup(function (e){
+	if($(".modal_overlay").has(e.target).length === 0){
+		$(".modal_overlay").hide();
+		$(document.body).css({
+            overflow : 'visible'
+          });
+	    }
+    });
+</script>
+
+<!--모달창 esc 종료-->
+<script>
+    $(document).keydown(function(e){
+	//keyCode 구 브라우저, which 현재 브라우저
+    var code = e.keyCode || e.which;
+
+    if (code == 27) { // 27은 ESC 키번호
+        $('.modal_overlay').hide();
+        }
+    	$(document.body).css({
+            overflow : 'visible'
+          });
+        });
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous">
+</script>
+
+
+<!-- 창 크기 변화 감지-->
+<script>
+
+        function open_chatroom(){
+            var windowWidth = $( window ).width();
+            if(windowWidth < 1000) {
+                // console.log(windowWidth+"asd")
+                $(".mainRightSection").css("display","hidden")
+                $(".mainRightSection").hide();
+            } else {
+                // console.log(windowWidth)
+                $(".mainRightSection").show();
+                $(".mainRightSection").offset({left:(windowWidth/2+86)})
+            }
+        }
+        $( window ).resize(function() {
+            //창크기 변화 감지
+            open_chatroom();
+        });
+        open_chatroom();
+        // $(".mainRightSection").offset({left:150});
+
+
+
+
+
+
+</script>
+
+
+<!--프로필 사진 드롭다운 메뉴 -->
+<script>
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.click')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<!--좋아요, 북마크 ㅠㅠㅠ-->
+<script>
+    $(".bookmark").click(function (event) {
+        let feed_id = event.target.attributes.getNamedItem('feed_id').value;
+        let bookmark_id = event.target.id;
+        let bookmark_text = $.trim($('#'+bookmark_id).html());
+        if(bookmark_text == 'bookmark') {
+            $('#'+bookmark_id).html('bookmark_border');
+        }else{
+            $('#'+bookmark_id).html('bookmark');
+        }
+
+        $.ajax({
+            url: "/content/bookmark",
+            data: {
+                feed_id : feed_id,
+                bookmark_text : bookmark_text
+            },
+            method: "POST",
+            success: function (data) {
+                console.log("성공");
+            },
+            error: function (request, status, error) {
+                console.log("에러");
+            },
+            complete: function () {
+                console.log("완료");
+            }
+        });
+    });
+
+
+ $(".favorite").click(function (event) {
+        let feed_id = event.target.attributes.getNamedItem('feed_id').value;
+        let favorite_id = event.target.id;
+        console.log(favorite_id);
+        let favorite_text = $.trim($('#'+favorite_id).html());
+          console.log(favorite_text);
+        if(favorite_text == 'favorite') {
+            $('#'+favorite_id).html('favorite_border');
+        }else{
+            $('#'+favorite_id).html('favorite');
+        }
+
+        $.ajax({
+            url: "/content/like",
+            data: {
+                feed_id : feed_id,
+                favorite_text : favorite_text
+            },
+            method: "POST",
+            success: function (data) {
+                console.log("성공");
+                location.replace('/main');
+            },
+            error: function (request, status, error) {
+                console.log("에러");
+            },
+            complete: function () {
+                console.log("완료");
+            }
+        });
+    });
+
+</script>
+
+
+
+</body>
+</html>

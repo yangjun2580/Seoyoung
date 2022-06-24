@@ -1,0 +1,604 @@
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>갤러리 입니당.</title>
+     <style>
+.main_title{
+	text-align: left;
+	font-size: 50px;
+	font-weight: 700px;
+	border:2px solid rgba(219,219,219,1);; padding:10px;
+	width: 190px;
+	border-radius: 6px;
+	margin-left: 40px;
+	margin-top: 30px;
+	height: 70px;
+
+}
+.year{
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	margin-top: -16px;
+
+}
+.main_list {
+<!--    width: 60rem;-->
+<!--    margin: 0 auto;-->
+}
+
+.list_start {
+	padding-left: 10px;
+    width: 159rem;
+}
+
+.list_detail {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+	border: 0px solid rgba(219,219,219,1);
+    margin-bottom: 5px;
+    margin: 25px 25px 0px 32px;
+}
+
+.paging_start{
+	margin-top: 35px;
+    text-align: left;
+    font-size: 40px;
+	margin-bottom: 184px;
+    padding-left: 34px;
+
+}
+
+.Img{
+width: 300px;
+height:300px;
+object-fit: cover;
+}
+.Img:hover {
+	transform: scale(1.4);
+	transition: .5s;
+
+}
+div > article{
+	float: center;
+
+}
+a {
+  text-decoration: none;
+}
+.button--nuka {
+  margin: 1em 2em;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--nuka.button--inverted {
+  color: #37474f;
+}
+.button--nuka::before,
+.button--nuka::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  background: #7986cb;
+  z-index: -1;
+}
+.button--nuka::before {
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
+  opacity: 0.2;
+  -webkit-transform: scale3d(0.7, 1, 1);
+  transform: scale3d(0.7, 1, 1);
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.button--nuka::after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scale3d(1.1, 1, 1);
+  transform: scale3d(1.1, 1, 1);
+  -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.button--nuka::before,
+.button--nuka::after {
+  -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+.button--nuka.button--inverted::before,
+.button--nuka.button--inverted::after {
+  background: #fff;
+}
+.button--nuka:hover {
+  color: #fff;
+}
+.button--nuka:hover::before {
+  opacity: 1;
+}
+.button--nuka:hover::after {
+  background-color: #37474f;
+}
+.button--nuka.button--inverted:hover::after {
+  background-color: #7986cb;
+}
+.button--nuka:hover::after,
+.button--nuka:hover::before {
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
+.button {
+  float: left;
+  min-width: 150px;
+  max-width: 250px;
+  display: block;
+  margin-left: 94px;
+  margin-top: -137px;
+  padding: 1em 2em;
+  border: none;
+  background: none;
+  color: inherit;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+css {
+  width: 100%;
+  height: 100%;
+}
+
+.position {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 15%;
+}
+
+#workarea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #1e1a3e;
+  font-family: Raleway;
+}
+
+#personal {
+  color:white;
+  text-decoration:none;
+  position:absolute;
+  bottom:15px;
+  right:2%;
+}
+/*    start code for the actual button:         */
+
+
+/*
+    Spot is the span on the inside of the href that
+    fills the parent and makes the hover and link work
+    for the entire div
+*/
+
+.spot {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+/*
+    This is the outer svg wrapper that the SVG itself will
+    fill. Multiple svg-wrapper classes can be put side by side.
+*/
+
+.svg-wrapper {
+  margin-top: -135px;
+  position: relative;
+  width: 150px;
+  /*make sure to use same height/width as in the html*/
+  height: 40px;
+  display: inline-block;
+  border-radius: 3px;
+  margin-left: 1200px;
+
+}
+/*
+  This is where we define the fill, color, thickness,
+  and stroke pattern of the SVG when there is no hover.
+  The dasharray and offset together define the line position
+  under the words. Here's also where the transition speed is set.
+*/
+
+#shape {
+  stroke-width: 6px;
+  fill: transparent;
+  stroke: #009FFD;
+  stroke-dasharray: 85 400;
+  stroke-dashoffset: -220;
+  transition: 1s all ease;
+}
+/*
+    Pushing the text up into the SVG. Without this the
+    text would be below the div's.
+*/
+
+#text {
+  margin-top: -35px;
+  text-align: center;
+}
+
+#text a {
+  color: white;
+  text-decoration: none;
+  font-weight: 100;
+  font-size: 1.1em;
+}
+/*
+    Changing the shape on hover. I change the color of the stroke,
+make it thinner, then set it to again wrap around the entire parent element.
+*/
+
+.svg-wrapper:hover #shape {
+  stroke-dasharray: 50 0;
+  stroke-width: 3px;
+  stroke-dashoffset: 0;
+  stroke: #06D6A0;
+}
+body{
+background: #ECECEC
+}
+
+:root {
+  --bg: #3C465C;
+  --primary: #22CA8C;
+  --solid: #fff;
+  --btn-w: 10em;
+  --dot-w: calc(var(--btn-w)*.2);
+  --tr-X: calc(var(--btn-w) - var(--dot-w));
+}
+* {box-sizing: border-box;}
+*:before, *:after {box-sizing: border-box;}
+
+.btn {
+  position: relative;
+  margin-top: -139px;
+  width: var(--btn-w);
+  color: var(--primary);
+  border: .15em solid var(--primary);
+  border-radius: 5em;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 2em;
+  cursor: pointer;
+  margin-left: 1644px;
+}
+.dot {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: var(--dot-w);
+  height: 100%;
+  border-radius: 100%;
+  transition: all 300ms ease;
+  display: none;
+}
+.dot:after {
+  content: '';
+  position: absolute;
+  left: calc(50% - .4em);
+  top: -.4em;
+  height: .8em;
+  width: .8em;
+  background: var(--primary);
+  border-radius: 1em;
+  border: .25em solid var(--solid);
+  box-shadow: 0 0 .7em var(--solid),
+        0 0 2em var(--primary);
+}
+.btn:hover .dot,
+.btn:focus .dot {
+  animation: atom 2s infinite linear;
+  display: block;
+}
+@keyframes atom {
+  0% {transform: translateX(0) rotate(0);}
+  30%{transform: translateX(var(--tr-X)) rotate(0);}
+  50% {transform: translateX(var(--tr-X)) rotate(180deg);}
+  80% {transform: translateX(0) rotate(180deg);}
+  100% {transform: translateX(0) rotate(360deg);}
+}
+  </style>
+  </head>
+  <body>
+  <script>
+  $(window).ready(function(){
+    var max = 500; //100% 투명할때의 스크롤 값
+    $(window).scroll(function(){
+        var scrollPX = $(this).scrollTop();
+        if( scrollPX  < max ) {
+            $("#bg").css({"opacity": (max-scrollPX)/max });
+        }else{
+            $("#bg").css({"opacity": 0});
+        }
+    });
+});
+</script>
+   <div class="main_list">
+		<!-- 상단 제목 -->
+		<div class="main_title" id="bg">
+			<div class="year">2016년</div>
+		</div>
+		<!-- 리스트 -->
+		<div class="list_start">
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+		</div>
+
+
+	   <div class="main_title">
+			<div class="year">2017년</div>
+		</div>
+		<!-- 리스트 -->
+		<div class="list_start">
+			<article class="list_detail"><img onclick="window.open(this.src)" src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+		</div>
+
+
+
+	   <div class="main_title">
+			<div class="year">2018년</div>
+		</div>
+		<!-- 리스트 -->
+		<div class="list_start">
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+		</div>
+
+
+	<div class="main_title">
+			<div class="year">2019년</div>
+		</div>
+		<!-- 리스트 -->
+		<div class="list_start">
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+		</div>
+
+
+	   <div class="main_title">
+			<div class="year">2020년</div>
+		</div>
+		<!-- 리스트 -->
+		<div class="list_start">
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+		</div>
+
+
+	   <div class="main_title">
+			<div class="year">2021년</div>
+		</div>
+		<!-- 리스트 -->
+		<div class="list_start">
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+		</div>
+
+
+	   <div class="main_title">
+			<div class="year">2022년</div>
+		</div>
+		<!-- 리스트 -->
+		<div class="list_start">
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+			<article class="list_detail"><img src="/media/f658bac98f414e21a3c10371d7bb7538" class="Img"></article>
+		</div>
+
+	<!-- 하단 리스트 번호 -->
+	<div class="paging_start">
+	</div>
+	</div>
+
+<div class="box bg-1">
+          <span onclick="location.href='/main' " class="button button--nuka button--round-s button--text-thick">축하 받으러 가기</span>
+	<div>
+		</div>
+	</div>
+
+
+<div class="svg-wrapper">
+      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+        <rect id="shape" height="40" width="150" />
+        <div id="text">
+          <a style="color: black" href="/main"><span onclick="location.href='/main' " class="spot"></span>축하 받으러 가기</a>
+        </div>
+      </svg>
+    </div>
+
+<div class="container">
+  <div class="btn">
+    <span onclick="location.href='/main' ">축하 받으러 가기</span>
+    <div class="dot"></div>
+  </div>
+</div>
+
+
+	<script>
+
+        function open_chatroom(){
+            var windowWidth = $( window ).width();
+            if(windowWidth < 1000) {
+                // console.log(windowWidth+"asd")
+                $(".mainRightSection").css("display","hidden")
+                $(".mainRightSection").hide();
+            } else {
+                // console.log(windowWidth)
+                $(".mainRightSection").show();
+                $(".mainRightSection").offset({left:(windowWidth/2+86)})
+            }
+        }
+        $( window ).resize(function() {
+            //창크기 변화 감지
+            open_chatroom();
+        });
+        open_chatroom();
+        // $(".mainRightSection").offset({left:150});
+
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </body>
+</html>

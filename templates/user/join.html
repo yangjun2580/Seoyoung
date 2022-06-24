@@ -1,0 +1,422 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <link rel="icon" href="{% static 'img/favicon.ico' %}">
+
+
+    <!-- Bootstrap CSS -->
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+    <style>
+        /* global */
+*{
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+ul{
+    list-style: none;
+}
+
+html, body{
+    height: 100%;
+    background-color: FAFAFA;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.Container{
+    width: 100%;
+    margin-top: 250px;
+    justify-content: center;
+}
+
+.screenshotContainer{
+    margin-right: 32px;
+    max-width: 350px;
+}
+
+.mainloginContainer{
+   border: solid 1px rgba(219,219,219,1);
+   min-width: 350px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 10px 0;
+   max-width: 350px;
+    padding-bottom: 30px;
+
+}
+
+.loginLogo{
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 36px 0px 12px 0px;
+}
+
+.inputContainer{
+    width: 266px;
+    height: 36px;
+    border: 1px solid rgba(219, 219, 219, 1);
+    border-radius: 3px;
+    background: rgba(250, 250, 250, 1);
+    align-items: center;
+    margin-bottom: 6px;
+    padding-bottom: 1px;
+}
+
+.maininputContainer{
+    font-size: 12px;
+    background: rgba(250, 250, 250, 1);
+    flex: 1 0 auto;
+    border: 0;
+    padding: 9px 0 7px 8px;
+}
+
+.inputMainContainer{
+    margin-top: 24px;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 40px;
+}
+
+
+.maininputContainer:focus{
+    outline: none;
+}
+
+.loginbtContainer{
+    margin: 8px 0px;
+    background-color: rgba(0, 149, 246, 0.3);
+    align-items: center;
+    flex: 0 0 auto;
+    justify-content: center;
+    margin: 0px 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.loginbt{
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 1);
+    padding: 5px 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.loginbtContainer:hover{
+    background-color: rgba(0, 149, 246, 1);
+}
+
+.slice{
+    height: 1px;
+    flex-shrink: 1;
+    top: 0.45em;
+    flex-grow: 1;
+    background-color: rgba(219, 219, 219, 1);
+}
+
+.tv-or{
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 18px;
+    line-height: 15px;
+    color: rgba(142, 142, 142, 1);
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+
+.facebookLogainContainer{
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: rgba(0, 149, 246, 1);
+    margin: 5px 40px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px 9px;
+}
+
+.facebookLoginbt{
+    border: 0;
+    color: rgba(255, 255, 255, 1);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    background-color: transparent;
+
+}
+
+.subContainer{
+    border: solid 1px rgba(219, 219, 291, 1);
+    min-width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top: 35px;
+}
+
+.ContainerLogin{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: FFFFFF
+}
+
+.signup{
+    color: rgba(0, 149, 246, 1);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+
+    cursor: pointer;
+}
+
+a, a:visited {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signupContainer{
+    padding: 10px 0px;
+}
+
+.vvzhL{
+    color: rgba(142, 142, 142, 1);
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0px 40px 10px;
+    text-align: center;
+
+}
+
+.ZGwn1{
+    color: rgba(var(--f52,142,142,142),1);
+    font-size: 12px;
+    line-height: 16px;
+    margin: 20px 40px;
+    text-align: center;
+}
+
+.sliceContainer{
+    margin: 0px 40px;
+    }
+.footer{
+    color: #8e8e8e;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 300px;
+}
+.Meta{
+     color: #8e8e8e;
+     font-weight: 400;
+     font-size: 13px;
+     line-height: 16px;
+     width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 10%;
+}
+.loginback{
+    border: solid 1px rgba(219,219,219,1);
+   min-width: 350px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 10px 0;
+   max-width: 350px;
+   padding-bottom: 15px;
+   background-color: FFFFFF;
+   padding-top: 15px;
+}
+.loginbackContainer{
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+.comment{
+    margin: 10px;
+}
+.login{
+    padding-right:10px;
+    margin-bottom: 10px;
+}
+    </style>
+    <title>로그인 • Instagram</title>
+</head>
+<body>
+
+<div class="Container flex">
+
+    <div class="ContainerLogin flex">
+        <div class="mainloginContainer">
+            <div class="loginContainer">
+                <div class="loginLogo flex">
+                    <img src="https://www.instagram.com/static/images/web/logged_out_wordmark.png/7a252de00b20.png">
+                </div>
+
+                <h2 class="vvzhL">친구들의 사진과 동영상을 보려면 가입하세요.</h2>
+                <div class="facebookLogainContainer flex">
+                    <button class="facebookLoginbt">
+                        Facebook으로 로그인
+                    </button>
+                </div>
+                <div class="sliceContainer flex">
+                    <div class="slice"></div>
+                    <div class="tv-or">또는</div>
+                    <div class="slice"></div>
+                </div>
+                <form class="inputMainContainer">
+                    <form id="SingupEvent">
+                        <div class="inputContainer flex">
+                            <input id="input_email" class="maininputContainer" aria-label="임력 검색"
+                                   placeholder="전화번호, 사용자 이름 또는 이메일" type="email">
+
+                        </div>
+                        <div class="inputContainer flex">
+                            <input id="input_name" class="maininputContainer" placeholder="성명" type="text">
+
+                        </div>
+                        <div class="inputContainer flex">
+                            <input id="input_nickname" class="maininputContainer" placeholder="사용자 이름" type="text">
+
+                        </div>
+                        <div class="inputContainer flex">
+                            <input id="input_password" class="maininputContainer" aria-label="임력 검색" placeholder="비밀번호"
+                                   type="password">
+
+                        </div>
+                    </form>
+                    <p class="ZGwn1">서비스를 이용하는 사람이 회원님의 연락처 정보를 Instagram에 업로드했을 수도 있습니다. <a
+                            href="https://www.facebook.com/help/instagram/261704639352628" tabindex="0"
+                            target="_blank"></a></p>
+                    <div id="join_button" class="loginbtContainer flex">
+                        <button class="loginbt" type= submit">가입</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="loginbackContainer flex">
+    <div class="loginback">
+        <div class="comment">
+
+         계정이 있으신가요?
+            <a href="login" style="color:#0095f6">로그인</a>
+            </div>
+        </div>
+</div>
+<footer>
+    <div>
+        <div class="footer">
+            Meta &nbsp&nbsp&nbsp  소개 &nbsp&nbsp&nbsp 블로그 &nbsp&nbsp&nbsp 채용정보 &nbsp&nbsp&nbsp 도움말 &nbsp&nbsp&nbsp
+            API &nbsp&nbsp&nbsp 개인정보처리방침 &nbsp&nbsp&nbsp 약관 &nbsp&nbsp&nbsp 인기 &nbsp&nbsp&nbsp
+            계정 &nbsp&nbsp&nbsp 해시태그 &nbsp&nbsp&nbsp 위치 &nbsp&nbsp&nbsp Instagram Lite &nbsp&nbsp&nbsp
+            연락처 업로드 & 비사용자
+
+        </div>
+        <div class="Meta">
+                한국어 &nbsp © 2022 Instagram from Meta
+            </div>
+    </div>
+
+</footer>
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<script>
+    $('#join_button').click(function () {
+
+        let email = $('#input_email').val();
+        let password = $('#input_password').val();
+        let nickname = $('#input_nickname').val();
+        let name = $('#input_name').val();
+
+        console.log(email, password, nickname, name);
+
+        $.ajax({
+            url: "/user/join",
+            data: {
+                email : email,
+                password : password,
+                nickname : nickname,
+                name : name
+            },
+            method: "POST",
+            dataType : "json",
+            success: function (data) {
+                console.log("성공");
+                alert("왕쓰 하이하이 ^~^.");
+                location.replace('/user/login');
+
+            },
+            error: function (request, status, error) {
+                console.log("에러");
+            },
+            complete: function () {
+                console.log("완료");
+            }
+        });
+    });
+</script>
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+-->
+<script>
+
+        function open_chatroom(){
+            var windowWidth = $( window ).width();
+            if(windowWidth < 1000) {
+                // console.log(windowWidth+"asd")
+                $(".mainRightSection").css("display","hidden")
+                $(".mainRightSection").hide();
+            } else {
+                // console.log(windowWidth)
+                $(".mainRightSection").show();
+                $(".mainRightSection").offset({left:(windowWidth/2+120)})
+            }
+        }
+        $( window ).resize(function() {
+            //창크기 변화 감지
+            open_chatroom();
+        });
+        open_chatroom();
+        // $(".mainRightSection").offset({left:150});
+
+</script>
+</body>
+</html>

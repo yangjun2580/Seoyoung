@@ -1,0 +1,201 @@
+/* global */
+*{
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+ul{
+    list-style: none;
+}
+
+html, body{
+    height: 100%;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+}
+
+.Container{
+    width: 100%;
+    margin-top: 32px;
+    justify-content: center;
+}
+
+.screenshotContainer{
+    margin-right: 32px;
+    max-width: 350px;
+}
+
+.mainloginContainer{
+   border: solid 1px rgba(219, 219, 291, 1);
+   min-width: 350px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 10px 0;
+   max-width: 350px;
+    padding-bottom: 30px;
+}
+
+.loginLogo{
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 36px 0px 12px 0px;
+}
+
+.inputContainer{
+    width: 266px;
+    height: 36px;
+    border: 1px solid rgba(219, 219, 219, 1);
+    border-radius: 3px;
+    background: rgba(250, 250, 250, 1);
+    align-items: center;
+    margin-bottom: 6px;
+    padding-bottom: 1px;
+}
+
+.maininputContainer{
+    font-size: 12px;
+    background: rgba(250, 250, 250, 1);
+    flex: 1 0 auto;
+    border: 0;
+    padding: 9px 0 7px 8px;
+}
+
+.inputMainContainer{
+    margin-top: 24px;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 40px;
+}
+
+
+.maininputContainer:focus{
+    outline: none;
+}
+
+.loginbtContainer{
+    margin: 8px 0px;
+    background-color: rgba(0, 149, 246, 0.3);
+    align-items: center;
+    flex: 0 0 auto;
+    justify-content: center;
+    margin: 0px 40px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#loginbt{
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 1);
+    padding: 5px 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.loginbtContainer:hover{
+    background-color: rgba(0, 149, 246, 1);
+}
+
+.slice{
+    height: 1px;
+    flex-shrink: 1;
+    top: 0.45em;
+    flex-grow: 1;
+    background-color: rgba(219, 219, 219, 1);   
+}
+
+.tv-or{
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 18px;
+    line-height: 15px;
+    color: rgba(142, 142, 142, 1);
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+
+.facebookLogainContainer{
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background-color: rgba(0, 149, 246, 1);
+    margin: 5px 40px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px 9px;
+}
+
+.facebookLoginbt{
+    border: 0;
+    color: rgba(255, 255, 255, 1);
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    background-color: transparent;
+
+}
+
+.subContainer{
+    border: solid 1px rgba(219, 219, 291, 1);
+    min-width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    margin-top: 35px;
+}
+
+.ContainerLogin{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup{
+    color: rgba(0, 149, 246, 1);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+
+    cursor: pointer;
+}
+
+a, a:visited {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signupContainer{
+    padding: 10px 0px;
+}
+
+.vvzhL{
+    color: rgba(142, 142, 142, 1);
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0px 40px 10px;
+    text-align: center;
+
+}
+
+.ZGwn1{
+    color: rgba(var(--f52,142,142,142),1);
+    font-size: 12px;
+    line-height: 16px;
+    margin: 20px 40px;
+    text-align: center;
+}
+
+.sliceContainer{
+    margin: 0px 40px;
+}

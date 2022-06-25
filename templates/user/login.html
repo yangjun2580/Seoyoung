@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
         <link rel="icon" href="{% static 'img/favicon.ico' %}">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 
@@ -27,7 +27,6 @@ ul{
 html, body{
     height: 100%;
     background-color: #FAFAFA;
-
 }
 
 .flex{
@@ -312,7 +311,7 @@ a, a:visited {
             success: function (data) {
                 console.log("성공");
                 alert("로그인 성공");
-                location.replace('/');
+                location.replace('/main');
 
             },
             error: function (request, status, error) {
@@ -346,7 +345,5 @@ a, a:visited {
         // $(".mainRightSection").offset({left:150});
 
 </script>
-
-
 </body>
 </html>

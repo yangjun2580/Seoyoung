@@ -5,7 +5,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
 
     <!-- Bootstrap CSS -->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -17,24 +17,9 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'img/favicon.ico' %}">
-
     <style>
- ul, ol, li { list-style:none; margin:0; padding:0; }
+    ul, ol, li { list-style:none; margin:0; padding:0; }
 
-.share_button{
-text-align: center;
-display: flex;
-justify-content: center;
-color: #0095F6;
-height: 1px;
-font-size: 15px;
-font-weight: 400;
-}
-
-.share_button:hover{
-    color: #0F9BF6;
-    font-weight: 1000;
-}
     ul.menu { position: relative;
     display: inline-block;}
     ul.dropdown > li { display:inline-block; text-align:center; position:relative; }
@@ -497,7 +482,7 @@ button{
 <nav id="topcontainer" class="flex">
     <div id="navContainer" class="flex">
         <div class="logoContainer">
-            <a href="/">
+            <a href="/main">
                 <img alt="Instagram" id="logo"
                      src="http://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png"
                      srcset="http://www.instagram.com/static/images/web/mobile_nav_type_logo-2x.png/1b47f9d0e595.png 2x">
@@ -519,7 +504,7 @@ button{
         </div>
         <div id="iconContainer" class="flex">
             <div class="navIcon">
-                <a href="/">
+                <a href="/main">
                     <svg aria-label="홈" class="_ab6-" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
                         <path d="M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
                 </a>
@@ -675,6 +660,8 @@ button{
             <div style="font-size: 26px; padding-right: 22px">
                 {{ user.nickname }}
             </div>
+
+
             <button id="button_profile_upload" style="margin-right: 18px;width:94px;
                 height: 30px;
                 color:#262626;
@@ -703,7 +690,7 @@ button{
 </div>
 
 <!--북마크, 좋아요, 게시물 바-->
-<div style="display: block; width: 70rem; border-top: 1px solid rgba(219,219,219,1); margin: 20px auto; text-align: center;">
+<div style="display: block; width: 70rem; border-top: 1px solid rgba(219,219,219,1);; margin: 20px auto; text-align: center;">
         <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 20px;">
 
              <div id="button_feed_list" style="cursor:pointer; margin: 0 30px; display: flex; flex-direction: row; align-items: center; ">
@@ -766,6 +753,7 @@ button{
                 <b>새 게시물 만들기</b>
             </div>
             <div style="width: 40px; background: white;">
+
             </div>
         </div>
 
@@ -787,31 +775,27 @@ button{
             <div style="width: 40px; background: white ">
             </div>
         </div>
-
         <div style="display: flex; flex-direction: row;">
             <div class="img_upload_space" style="width: 500px; height: 555px;border-radius:10px; ">
 
             </div>
-            <div class="modalContainer" style="display: flex; flex-direction: row; justify-content: space-between">
-                <div>
-                    <div>
-                    <img src="{% get_media_prefix %}{{ user.profile_image }}" id="feedImg">
-                    <div id="feednickname">
-                        {{ user.nickname }}
-                    </div>
-                </div>
+            <div class="modalContainer">
+                <!--                <div>-->
+                <!--                    여기가 아이디 부분인데....-->
+                <!--                </div>-->
                 <div class="textContainer">
                     <textarea id="input_feed_content" class="textbox" aria-label="문구 입력..." placeholder="문구 입력..."
                               autocomplete="off" ;
                               autocorrect="off"
-                              style="font-size: 15px; height: 235px; width: 297px; background: transparent; padding-top: 23px;"></textarea>
+                              style="height: 235px; width: 297px; background: transparent;"></textarea>
                 </div>
-                <button id="feed_create_button" type="button" class="share_button" style="width: 100">
+                <button id="feed_create_button" type="button" class="btn btn-primary" style="width: 100">
                     공유하기
                 </button>
             </div>
+
         </div>
-            </div>
+
     </div>
 </div>
 
@@ -915,7 +899,7 @@ function uploadFiles(e){
             },
             complete: function (){
                 console.log("완료");
-                location.replace("/content/profile");
+                location.replace("/main");
             }
         });
     });
@@ -944,6 +928,20 @@ function uploadFiles(e){
           });
         });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <!--모달창 esc 누르면 마찬가지로 모달창 숨겨짐-->
@@ -959,6 +957,21 @@ function uploadFiles(e){
             overflow : 'visible'
           });
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 
@@ -1020,7 +1033,7 @@ window.onclick = function(event) {
 <!--프로필 사진 편집-->
 <script>
 
-    $('#button_profile_upload').click(function (){
+    $('#button_profile_upload').click(function(){
         $('#input_fileupload').click();
     });
 
@@ -1040,20 +1053,18 @@ window.onclick = function(event) {
             method: "POST",
             processData: false,
             contentType: false,
-            success: function (data) {
+            success: function (data){
                 console.log("성공");
             },
-            error: function (request, status, error) {
+            error: function (request, status, error){
                 console.log("에러");
             },
-            complete: function () {
+            complete: function (){
                 console.log("완료");
                 location.replace("/content/profile");
             }
-        });
-
+            });
     }
-
 </script>
 
 

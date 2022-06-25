@@ -22,6 +22,7 @@ from content.views import Main, UploadFeed
 
 urlpatterns = [
     path('', Main.as_view()),
+    path('/main', Main.as_view()),
     path('content/', include('content.urls')),
     path('user/', include('user.urls')),
 

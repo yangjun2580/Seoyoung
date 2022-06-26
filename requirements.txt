@@ -7,3 +7,4 @@ pycryptodome==3.14.1
 pytz==2022.1
 sqlparse
 tzdata==2022.1
+uwsgi

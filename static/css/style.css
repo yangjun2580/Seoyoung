@@ -2,7 +2,6 @@
 *{
     /* font-family: 'Roboto', sans-serif; */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
@@ -10,11 +9,11 @@
 }
 ul{
     list-style: none;
+    padding left: 0;
 }
 
 html, body{
     height: 100%;
-    background-color: rgba(250, 250, 250, 1);
 }
 
 .flex{
@@ -81,7 +80,7 @@ html, body{
     background-color: rgba(239,239,239,1);
     border: none;
     font-size: 16px;
-    padding : 3px 16px;
+    padding : 3px 10px;
     color: rgba(142, 142, 142, 0.5);
     cursor: text;
 }
@@ -93,7 +92,7 @@ html, body{
 
 .totalinputContainer{
     min-width: 125px;
-    width: 268px;
+    width: 326px;
     flex: 0 1 auto;
     position: relative;
     height: 36px;
@@ -101,16 +100,13 @@ html, body{
 }
 
 #inputImg{
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 15px;
     padding-right: 12px;
 }
 
 #iconContainer{
-    flex: 1 0 127px;
-    padding-left: 48px;
-    position: relative;
-    display: flex;
+
 }
 
 .navIcon{
@@ -122,12 +118,12 @@ html, body{
 .mainContainer{
     background-color: rgba(250, 250, 250, 1);
     margin-top: 60px;
-    height: 100rem;
+   /* height: 100rem; */
     display: flex;
     justify-content: center;
 }
 
-.mainSection{
+.mainSection{h
     align-items: stretch;
     padding-top: 30px;
     display: flex;
@@ -136,21 +132,26 @@ html, body{
     margin: 0 auto;
     flex-grow: 1;
     flex-flow: row nowrap;
+    justify-content: center;
 }
 
 .mainLeftSection{
-    margin-right: 28px;
-    max-width: 614px;
+    padding-top: 30px;
+    margin-right: 358px;
+    max-width: 465px;
     width: 100%;
     float: left;
 }
 
 .friendList{
+    background-color:#FFFFFF;
     border: 1px solid rgba(219,219,219,1);
-    border-radius: 3px;
-    margin-bottom: 24px;
-    margin-top: 0;
+    border-radius: 9px;
+    margin-bottom: 16px;
+    margin-top: -4px;
     padding: 16px 0;
+
+
 }
 
 .frienduserImg{
@@ -176,8 +177,7 @@ html, body{
 .friendListContainer{
     display: flex;
     flex-direction: row;
-    overflow-x: auto;
-    overflow-y: hidden;
+
 }
 
 .friendListContainer::-webkit-scrollbar{
@@ -206,14 +206,16 @@ html, body{
 
 
 .firendLiContainer{
-    padding: 0 4px;
+    padding: 4px 6px;
     height: 85px;
     width: 80px;
 }
 
 .arcitle{
+    background-color:#FFFFFF;
     margin-bottom: 24px;
     border: 1px solid rgba(219, 219, 219, 1);
+    border-radius: 9px;
 }
 
 .articleUserImg{
@@ -225,13 +227,14 @@ html, body{
 .articleUserConatiner{
     display: flex;
     flex-direction: row;
-    padding: 14px 4px 14px 16px;
+    padding: 14px 4px 14px 12px;
     align-items: center;
     max-width: calc(100%-48px);
 }
 
 .articleUserName{
-    margin-left: 14px;
+    margin-left: 13px;
+    margin-top:  -4px;
     overflow: hidden;
     flex-grow: 1;
     flex-shrink: 1;
@@ -251,15 +254,15 @@ html, body{
     flex-shrink: 0;
     left: 0;
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     top: 0;
     flex: 0 0 auto;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
 }
 
 .articleImg{
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     left: 0;
     top: 0;
@@ -294,7 +297,7 @@ html, body{
 }
 
 .userLikeContainer{
-    padding: 0px 16px;
+    padding: 0px 13px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -314,7 +317,7 @@ html, body{
 }
 
 .articleContentContainer{
-    padding: 0px 16px;
+    padding: 0px 11px;
     margin-bottom: 8px;
 }
 .articleMainUser{
@@ -333,12 +336,13 @@ a, a:visited {
     font-weight: 400;
 }
 .articleDate{
+    margin-left: -4px;
     font-size: 10px;
     color: rgba(142, 142, 142, 1);
 }
 
 .articleCommentContainer{
-    padding: 6px 16px 6px 16px;
+    padding: 14px 14px 14px 14px;
     border-top: 1px solid rgba(239, 239, 239, 1);
     display: flex;
     flex-direction: row;
@@ -353,7 +357,7 @@ a, a:visited {
 .articleCommentForm{
     width: 100%;
     display: flex;
-    
+
     align-items: center;
     justify-content: space-between;
 }
@@ -373,26 +377,27 @@ button{
     display: flex;
     max-height: 80px;
     outline: 0;
-    padding: 0;
+    padding: 0 12px;
     resize: none;
     width: 0;
     line-height: 18px;
     color: rgba(142, 142, 142, 1);
 }
 
-#articleCommentSubmit{
+.articleCommentSubmit{
     opacity: 0.3;
     color: rgba(0, 149, 246, 1);
 }
 
 .mainRightSection{
-    position: fixed;
-    top: calc(34px + 60px);
-    height: 100vh;
+    position: absolute;
+    top: calc(15px + 60px);
+    height: 100px;
     margin-bottom: 30px;
     max-width: 293px;
-    right: 0;
+    right: 62.7rem;
     width: 100%;
+
 }
 
 .Xmss_{
@@ -408,7 +413,7 @@ button{
     flex-direction: row;
     flex: 0, 0, auto;
     align-items: center;
-    margin: 16px 0px 10px 0px;
+    margin: 16px 0px -6px 0px;
 }
 
 .userInfoImg{
@@ -418,11 +423,12 @@ button{
     border-radius: 50%;
 }
 .userRealname{
-
     color: rgba(142, 142, 142, 1);
-}
-.userRealname, .username{
     margin-left: 12px;
+}
+.username{
+    margin-left: 12px;
+    color: rgba(45,45,45,1);
     font-weight: 600;
 }
 
@@ -436,14 +442,14 @@ button{
     font-size: 12px;
     font-weight: 600;
     line-height: 16px;
-    margin: -2px 0 -3px;
+    margin: -2px -19px -3px;
     color: rgba(0, 149, 246, 1);
 }
 
 .recommandUserContainer{
     display: flex;
     flex-direction: row;
-    padding: 4px 0 4px 0; 
+    padding: 4px 0 4px 0;
     margin-top: 12px;
 
 }
@@ -458,6 +464,7 @@ button{
 
 .recommandViewAll{
     font-size: 12px;
+
 }
 
 .recommanUserListContainer{
@@ -470,7 +477,7 @@ button{
     display: flex;
     align-items: center;
     flex-direction: row;
-    padding-left: 8px;
+    padding-left: 4px;
     margin: 8px 0px;
 }
 
@@ -491,11 +498,11 @@ button{
     font-size: 12px;
     font-weight: 600;
     line-height: 16px;
-    margin: -2px 0 -3px;
+    margin: -2px -6px -3px;
     color: rgba(0, 149, 246, 1);
 }
 
-.introcontent{profile_img
+.introcontent{
     color: rgba(199, 199, 199, 1);
     font-weight: 400;
     font-size: 12px;
@@ -510,19 +517,195 @@ button{
     line-height: 16px;
 }
 
-.profile_img{
-position:flex;
-padding-left:10px;
+h1 {
+ color : #fc4305;
+}
+.pad{
+    padding-right:5px;
+}
+.picture{
+
+    margin: -2px;
+    margin-left: -2px;
+}
+
+.comment{
+    padding: 0px 11px;
+    margin-bottom: 10px;
+}
+   .modal_overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(1.5px);
+        -webkit-backdrop-filter: blur(1.5px);
+            }
+
+    .modal_window {
+         background: white;
+        backdrop-filter: blur(13.5px);
+        -webkit-backdrop-filter: blur(13.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        width: 800px;
+        height: 600px;
+        position: absolute;
+    }
 
 
-@font-face {
- font-family: 'Material Icons';
- font-style: normal;
- font-weight: 400;
- src: url(path/to/MaterialIcons-Regular.eot); /* For IE6-8 */
- src: local('Material Icons'),
-     local('MaterialIcons-Regular'),
-     url(path/to/MaterialIcons-Regular.woff2) format('woff2'),
-     url(path/to/MaterialIcons-Regular.woff) format('woff'),
-     url(path/to/MaterialIcons-Regular.ttf) format('truetype');
- }
+     .modal_title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .modal_title_side{
+        flex: 0 0 40px;
+        text-align: center;
+    }
+
+    #upload {
+    outline-offset:-10px;
+    text-align: center;
+    transition: all .15s ease-in-out;
+    background-color: white;
+    width: 799px;
+    height: 555px;
+    border-radius:10px;
+}
+.modalContainer{
+border-bottom: 1px solid rgba(219,219,219,1);
+padding: 12px 0;
+
+}
+
+.uploadIcon{
+margin: 200px 0;
+}
+
+#upload_comment{
+    margin: -180px 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+
+}
+.textbox{
+  outline: none;
+  border: none;
+  resize: none;
+  padding: 18px 22px;
+}
+.textbox:focus {
+  outline: none;
+}
+
+.share{
+padding: 0px 0px;
+}
+
+.share_button{
+text-align: center;
+display: flex;
+justify-content: center;
+color: #0095F6;
+height: 1px;
+font-size: 15px;
+font-weight: 400;
+}
+
+.share_button:hover{
+    color: #0F9BF6;
+    font-weight: 1000;
+}
+
+ ul, ol, li { list-style:none; margin:0; padding:0; }
+
+    ul.menu { position: relative;
+    display: inline-block;}
+    ul.dropdown > li { display:inline-block; text-align:center; position:relative; }
+    ul.menu > li ul.myDropdown { display:none;  position:absolute;}
+
+html, body{
+    height: 100%;
+    background-color: rgba(250, 250, 250, 1);
+}
+
+
+.dropbtn {
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+#articleCommentSubmit{
+    opacity: 0.8;
+    color: rgba(0, 149, 246, 1);
+    transition: color 0.5s ease-in-out;
+}
+#articleCommentSubmit:hover{
+    color: #0F9BF6;
+    font-weight: 1000;
+}
+
+#feedImg{
+    margin: 9px 16px;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+#feednickname{
+    margin-left: 60px;
+    color: rgba(45,45,45,1);
+    font-weight: 600;
+    margin-top: -37px;
+    padding-left: 2px;
+    font-size: 15px;
+
+}

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'content',
     'user',
     'Seoyoung',
+    'seoyoung',
 ]
 
 MIDDLEWARE = [

@@ -16,12 +16,14 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.urls import path, include
 from . import settings
-from content.views import Main, UploadFeed
+from content.views import Main, UploadFeed, insta
+
 
 
 
 urlpatterns = [
-    path('', Main.as_view()),
+    path('Seoyoung/main', Main.as_view()),
+    path('',insta.as_view()),
     path('content/', include('content.urls')),
     path('user/', include('user.urls')),
 

@@ -158,9 +158,9 @@ class ToggleBookmark(APIView):
         return Response(status=200)
 
 
-class main2(APIView):
+class insta(APIView):
     def get(self, request):
-        return render(request, 'content/main2.html')
+        return render(request, 'Seoyoung/insta.html')
 
 class gallery(APIView):
     def get(self, request):

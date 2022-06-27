@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'seoyoung1',
         'USER': 'seoyoung',
         'PASSWORD': 'Yy960506!@@',
-        'HOST': '13.125.205.36',
+        'HOST': '15.164.232.23',
         'PORT': '3306',
     }
 }

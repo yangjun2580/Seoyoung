@@ -1,0 +1,8 @@
+asgiref
+Django
+django-searchable-encrypted-fields==0.1.9
+djangorestframework
+pycryptodome==3.14.1
+pytz==2022.1
+sqlparse==0.4.2
+tzdata==2022.1

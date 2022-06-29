@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import UploadFeed, Profile, UploadReply, ToggleLike,ToggleBookmark, gallery, gift
+from .views import UploadFeed, Profile, UploadReply, ToggleLike,ToggleBookmark, gallery, gift, realgift
 
 
 
@@ -12,6 +12,7 @@ urlpatterns = [
     path('profile', Profile.as_view()),
     path('gallery', gallery.as_view()),
     path('gift', gift.as_view()),
+    path('realgift', realgift.as_view()),
 
     ]
 

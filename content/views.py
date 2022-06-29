@@ -35,16 +35,16 @@ class Main(APIView):
             is_liked = Like.objects.filter(feed_id=feed.id, email=email, is_like=True).exists()
             is_marked = Bookmark.objects.filter(feed_id=feed.id, email=email, is_marked=True).exists()
             feed_list.append(dict(
-                                  id=feed.id,
-                                  image=feed.image,
-                                  content=feed.content,
-                                  like_count=like_count,
-                                  profile_image=user.profile_image,
-                                  nickname=user.nickname,
-                                  reply_list=reply_list,
-                                  is_liked=is_liked,
-                                  is_marked=is_marked
-                                  ))
+                id=feed.id,
+                image=feed.image,
+                content=feed.content,
+                like_count=like_count,
+                profile_image=user.profile_image,
+                nickname=user.nickname,
+                reply_list=reply_list,
+                is_liked=is_liked,
+                is_marked=is_marked
+            ))
             # email 변수가 여기 있어야함
             # email = request.session.get('email', None)
 
@@ -78,14 +78,6 @@ class UploadFeed(APIView):
         Feed.objects.create(image=image, content=content, email=email)
 
         return Response(status=200)
-
-
-
-
-
-
-
-
 
 
 class Profile(APIView):
@@ -170,11 +162,17 @@ class insta(APIView):
     def get(self, request):
         return render(request, 'Seoyoung/insta.html')
 
+
 class gallery(APIView):
     def get(self, request):
         return render(request, 'content/gallery.html')
 
-class gift(APIView):
-        def get(self, request):
-            return render(request, 'content/gift.html')
 
+class gift(APIView):
+    def get(self, request):
+        return render(request, 'content/gift.html')
+
+
+class realgift(APIView):
+    def get(self, request):
+        return render(request, 'content/realgift.html')

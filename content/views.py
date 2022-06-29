@@ -80,6 +80,14 @@ class UploadFeed(APIView):
         return Response(status=200)
 
 
+
+
+
+
+
+
+
+
 class Profile(APIView):
     def get(self, request):
         email = request.session.get('email', None)

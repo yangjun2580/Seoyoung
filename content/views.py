@@ -174,3 +174,7 @@ class gallery(APIView):
     def get(self, request):
         return render(request, 'content/gallery.html')
 
+class gift(APIView):
+        def get(self, request):
+            return render(request, 'content/gift.html')
+

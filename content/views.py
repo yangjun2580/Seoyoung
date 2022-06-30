@@ -176,3 +176,7 @@ class gift(APIView):
 class realgift(APIView):
     def get(self, request):
         return render(request, 'content/realgift.html')
+
+class realgift2(APIView):
+    def get(self, request):
+        return render(request, 'content/realgift2.html')

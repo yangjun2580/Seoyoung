@@ -235,7 +235,7 @@ a, a:visited {
             <input id="input_email" class="maininputContainer"  aria-label="임력 검색" placeholder="전화번호, 사용자 이름 또는 이메일" type="email">
     </div>
         <div class="inputContainer flex">
-            <input id="input_password" autocomplete="off" class="maininputContainer" aria-label="임력 검색" placeholder="비밀번호" type="password">
+            <input id="input_password" class="maininputContainer" aria-label="임력 검색" placeholder="비밀번호" type="password">
             </div>
         </form>
 
@@ -305,15 +305,13 @@ a, a:visited {
         $.ajax({
             url: "/user/login",
             data: {
-                'email' : $('#input_email').val(),
-                'password' : $('#input_password').val()
-<!--                    email : email,-->
-<!--                    password : password-->
+                    email : email,
+                    password : password
             },
             method: "POST",
             success: function (data) {
                 console.log("성공");
-                alert("만드는데 정말 힘듦 서영쓰 ㅠ_ㅠ");
+<!--                alert("만드는데 정말 힘듦 서영쓰 ㅠ_ㅠ");-->
                 location.replace('/Seoyoung/main');
 
             },

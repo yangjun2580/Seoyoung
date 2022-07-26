@@ -18,9 +18,9 @@ class Join(APIView):
         nickname = request.data.get('nickname')
         name = request.data.get('name')
 
-        if User.objects.filter(email=email).exists() :
+        if User.objects.filter(email=email).exists():
             return Response(status=500, data=dict(message='해당 이메일 주소가 존재합니다.'))
-        elif User.objects.filter(nickname=nickname).exists() :
+        elif User.objects.filter(nickname=nickname).exists():
             return Response(status=500, data=dict(message='사용자 이름 "' + nickname + '"이(가) 존재합니다.'))
 
         User.objects.create(password=make_password(password),

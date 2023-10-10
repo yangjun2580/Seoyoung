@@ -3,7 +3,7 @@ from django.db import models
 from encrypted_fields import fields
 # Create your models here.
 
-class User1(AbstractBaseUser):
+class User(AbstractBaseUser):
     """
         유저 프로필 사진
         유저 아이디    -> 화면에 표기되는 이름
@@ -18,4 +18,4 @@ class User1(AbstractBaseUser):
     password = models.CharField(max_length=255, null=False, default=False)
 
     class Meta:
-         db_table = "User1"
+         db_table = "User"

@@ -18,4 +18,4 @@ class User1(AbstractBaseUser):
     password = models.CharField(max_length=255, null=False, default=False)
 
     class Meta:
-         db_table = "User"
+         db_table = "User1"

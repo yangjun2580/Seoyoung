@@ -27,7 +27,7 @@ class Join(APIView):
                              email=email,
                              nickname=nickname,
                              name=name,
-                             profile_image="default_profile.png")
+                             profile_image='default_profile.png')
 
         return Response(status=200, data=dict(message=""))
 

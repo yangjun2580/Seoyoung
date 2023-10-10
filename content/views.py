@@ -29,22 +29,21 @@ class Main(APIView):
             reply_list = []
             for reply in reply_object_list:
                 user = User1.objects.filter(email=reply.email).first()
-                reply_list.append(dict(reply_content=reply.reply_content,
-                                       nickname=user.nickname))
+                reply_list.append(dict(reply_content=reply.reply_content, nickname=user.nickname))
             like_count = Like.objects.filter(feed_id=feed.id, is_like=True).count()
             is_liked = Like.objects.filter(feed_id=feed.id, email=email, is_like=True).exists()
             is_marked = Bookmark.objects.filter(feed_id=feed.id, email=email, is_marked=True).exists()
             feed_list.append(dict(
-                                  id=feed.id,
-                                  image=feed.image,
-                                  content=feed.content,
-                                  like_count=like_count,
-                                  profile_image=user.profile_image,
-                                  nickname=user.nickname,
-                                  reply_list=reply_list,
-                                  is_liked=is_liked,
-                                  is_marked=is_marked
-                                  ))
+                id=feed.id,
+                image=feed.image,
+                content=feed.content,
+                like_count=like_count,
+                profile_image=user.profile_image,
+                nickname=user.nickname,
+                reply_list=reply_list,
+                is_liked=is_liked,
+                is_marked=is_marked
+            ))
             # email 변수가 여기 있어야함
             # email = request.session.get('email', None)
 
@@ -158,11 +157,25 @@ class ToggleBookmark(APIView):
         return Response(status=200)
 
 
-class main2(APIView):
+class insta(APIView):
     def get(self, request):
-        return render(request, 'content/main2.html')
+        return render(request, 'Seoyoung/insta.html')
+
 
 class gallery(APIView):
     def get(self, request):
         return render(request, 'content/gallery.html')
 
+
+class gift(APIView):
+    def get(self, request):
+        return render(request, 'content/gift.html')
+
+
+class realgift(APIView):
+    def get(self, request):
+        return render(request, 'content/realgift.html')
+
+class realgift2(APIView):
+    def get(self, request):
+        return render(request, 'content/realgift2.html')

@@ -29,7 +29,7 @@ class Main(APIView):
             reply_list = []
             for reply in reply_object_list:
                 user = User.objects.filter(email=reply.email).first()
-                reply_list.append(dict(reply_content=reply.reply_content))
+                reply_list.append(dict(reply_content=reply.reply_content, nickname=user.nickname))
             like_count = Like.objects.filter(feed_id=feed.id, is_like=True).count()
             is_liked = Like.objects.filter(feed_id=feed.id, email=email, is_like=True).exists()
             is_marked = Bookmark.objects.filter(feed_id=feed.id, email=email, is_marked=True).exists()
@@ -38,6 +38,8 @@ class Main(APIView):
                 image=feed.image,
                 content=feed.content,
                 like_count=like_count,
+                nickname=user.nickname,
+                profile_image=user.profile_image,
                 reply_list=reply_list,
                 is_liked=is_liked,
                 is_marked=is_marked

@@ -348,10 +348,10 @@ html, body{
             <article class="arcitle">
                 <div class="articleUserConatiner">
                     <div class="flex">
-                        <img src="{% get_media_prefix %}{{ user.profile_image }}" class="articleUserImg">
+                        <img src="{% get_media_prefix %}{{ feed.profile_image }}" class="articleUserImg">
                     </div>
                     <div class="articleUserName">
-                        {{ user.nickname }}
+                        {{ feed.nickname }}
                     </div>
                     <div class="pad">
                         <svg aria-label="옵션 더 보기" class="_ab6-" color="#262626" fill="#262626" height="24"
@@ -413,7 +413,7 @@ html, body{
                     </div>
                     <div class="articleContentContainer">
                             <span class="articleMainUser">
-                                <a href>{{ user.nickname }}</a>
+                                <a href>{{ feed.nickname }}</a>
                             </span>
                         {{ feed.content }}
                         <br>
@@ -423,7 +423,7 @@ html, body{
                         {% for reply in feed.reply_list %}
                         <div class="comment">
                         <span class="articleMainUser">
-                                <a>{{ user.nickname }}</a>
+                                <a>{{ reply.nickname }}</a>
                             </span>
                             {{ reply.reply_content }}
                             <br>

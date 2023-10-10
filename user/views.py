@@ -24,12 +24,13 @@ class Join(APIView):
             return Response(status=500, data=dict(message='사용자 이름 "' + nickname + '"이(가) 존재합니다.'))
 
         User1.objects.create(password=make_password(password),
-                            email=email,
-                            nickname=nickname,
-                            name=name,
-                            profile_image='default_profile.png')
+                             email=email,
+                             nickname=nickname,
+                             name=name,
+                             profile_image="default_profile.png")
 
         return Response(status=200, data=dict(message=""))
+
 
 class Login(APIView):
     def get(self, request):
@@ -53,7 +54,6 @@ class Login(APIView):
             return Response(dict(msg="로그인 실패. 패스워드 다름"))
 
 
-
 class Logout(APIView):
     def get(self, request):
         request.session.flush()
@@ -62,7 +62,6 @@ class Logout(APIView):
 
 class UploadProfile(APIView):
     def post(self, request):
-
         # 파일 불러오자
         file = request.FILES['file']
         email = request.data.get('email')
@@ -82,4 +81,3 @@ class UploadProfile(APIView):
         user.save()
 
         return Response(status=200)
-

@@ -3,7 +3,7 @@ from django.db import models
 from encrypted_fields import fields
 # Create your models here.
 
-class User(AbstractBaseUser):
+class User1(AbstractBaseUser):
     """
         유저 프로필 사진
         유저 아이디    -> 화면에 표기되는 이름

@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from content.models import Feed, Reply, Like, Bookmark
 import os
 from Seoyoung.settings import MEDIA_ROOT
-from user.models import User
+from user.models import User1
 
 
 class Main(APIView):
@@ -18,17 +18,17 @@ class Main(APIView):
         if email is None:
             return render(request, "user/login.html")
 
-        user = User.objects.filter(email=email).first()
+        user = User1.objects.filter(email=email).first()
 
         if user is None:
             return render(request, "user/login.html")
 
         for feed in feed_object_list:
-            user = User.objects.filter(email=feed.email).first()
+            user = User1.objects.filter(email=feed.email).first()
             reply_object_list = Reply.objects.filter(feed_id=feed.id)
             reply_list = []
             for reply in reply_object_list:
-                user = User.objects.filter(email=reply.email).first()
+                user = User1.objects.filter(email=reply.email).first()
                 reply_list.append(dict(reply_content=reply.reply_content, nickname=user.nickname))
             like_count = Like.objects.filter(feed_id=feed.id, is_like=True).count()
             is_liked = Like.objects.filter(feed_id=feed.id, email=email, is_like=True).exists()
@@ -50,7 +50,7 @@ class Main(APIView):
             if email is None:
                 return render(request, "user/login.html")
 
-            user = User.objects.filter(email=email).first()
+            user = User1.objects.filter(email=email).first()
 
             if user is None:
                 return render(request, "user/login.html")
@@ -86,7 +86,7 @@ class Profile(APIView):
         if email is None:
             return render(request, "user/login.html")
 
-        user = User.objects.filter(email=email).first()
+        user = User1.objects.filter(email=email).first()
 
         if user is None:
             return render(request, "user/login.html")

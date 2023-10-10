@@ -18,12 +18,12 @@ class Join(APIView):
         nickname = request.data.get('nickname')
         name = request.data.get('name')
 
-        if User1.objects.filter(email=email).exists():
+        if User.objects.filter(email=email).exists():
             return Response(status=500, data=dict(message='해당 이메일 주소가 존재합니다.'))
-        elif User1.objects.filter(nickname=nickname).exists():
+        elif User.objects.filter(nickname=nickname).exists():
             return Response(status=500, data=dict(message='사용자 이름 "' + nickname + '"이(가) 존재합니다.'))
 
-        User1.objects.create(password=make_password(password),
+        User.objects.create(password=make_password(password),
                              email=email,
                              nickname=nickname,
                              name=name,
@@ -41,7 +41,7 @@ class Login(APIView):
         email = request.data.get('email', None)
         password = request.data.get('password', None)
 
-        user = User1.objects.filter(email=email).first()
+        user = User.objects.filter(email=email).first()
 
         if user is None:
             return Response(dict(msg="사용자 ID 없음"))
@@ -75,7 +75,7 @@ class UploadProfile(APIView):
 
         profile_image = uuid_name
 
-        user = User1.objects.filter(email=email).first()
+        user = User.objects.filter(email=email).first()
 
         user.profile_image = profile_image
         user.save()

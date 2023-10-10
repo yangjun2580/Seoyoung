@@ -351,7 +351,7 @@ html, body{
                         <img src="{% get_media_prefix %}{{ user.profile_image }}" class="articleUserImg">
                     </div>
                     <div class="articleUserName">
-                        {{ feed.nickname }}
+                        {{ user.nickname }}
                     </div>
                     <div class="pad">
                         <svg aria-label="옵션 더 보기" class="_ab6-" color="#262626" fill="#262626" height="24"
@@ -413,7 +413,7 @@ html, body{
                     </div>
                     <div class="articleContentContainer">
                             <span class="articleMainUser">
-                                <a href>{{ feed.nickname }}</a>
+                                <a href>{{ user.nickname }}</a>
                             </span>
                         {{ feed.content }}
                         <br>
@@ -423,7 +423,7 @@ html, body{
                         {% for reply in feed.reply_list %}
                         <div class="comment">
                         <span class="articleMainUser">
-                                <a>{{ reply.nickname }}</a>
+                                <a>{{ user.nickname }}</a>
                             </span>
                             {{ reply.reply_content }}
                             <br>
